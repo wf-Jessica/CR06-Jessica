@@ -1,0 +1,17 @@
+
+something like “show all students of the class 1b, which has the ID=2”
+
+SELECT `enroll`.`classID`, `class`.`classname`, `student`.*
+FROM `enroll` 
+	LEFT JOIN `class` ON `enroll`.`classID` = `class`.`id` 
+	LEFT JOIN `student` ON `enroll`.`studentID` = `student`.`id`
+WHERE `enroll`.`classID` = '2';
+
+show all students of the class ‘1b’; I do not know the class ID
+  i searched for the class 1d:
+
+SELECT `enroll`.*, `class`.`classname`, `student`.*
+FROM `enroll` 
+	LEFT JOIN `class` ON `enroll`.`classID` = `class`.`id` 
+	LEFT JOIN `student` ON `enroll`.`studentID` = `student`.`id`
+WHERE `class`.`classname` LIKE '1d';
